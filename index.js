@@ -6,7 +6,7 @@ const path = require('path')
 
 //to connect to db
 
-connection();
+//connection();
 
 //creating the express app
 
