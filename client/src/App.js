@@ -17,7 +17,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Intro />}>
                     </Route>
-                    {/* <Route exact path="/changeinsleep" element={<ChangeinSleep />}>
+                    <Route exact path="/changeinsleep" element={<ChangeinSleep />}>
                     </Route>
                     <Route exact path="/hoursofsleep" element={<HoursOfSleep />}>
                     </Route>
@@ -30,7 +30,7 @@ function App() {
                     <Route exact path="/timetosleep" element={<TimetoSleep />}>
                     </Route>
                     <Route exact path="/sleepscore" element={<SleepScore />}>
-                    </Route>*/}
+                    </Route>
                 </Routes>
             </div>
         </BrowserRouter>

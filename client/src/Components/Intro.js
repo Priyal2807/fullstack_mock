@@ -10,7 +10,7 @@ function Intro() {
             <div className="intro">
                 I am here to help you sleep better
             </div>
-            <Button/>
+            <Button name="/name"/>
         </div>
         )
 }

@@ -10,7 +10,7 @@
 }
 .sizeofDiv {
     height: 50vh;
-    width: 50vh;
+    width: 70vw;
 }
 
 .heading {
@@ -22,15 +22,19 @@
     font-size: 1em;
     color: white;
     margin: 1em;
+    text-align: justify;
 }
-
+button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    color: white
+}
 .button {
-    width: 25px;
-    height: 25px;
     background: #F1C40F;
     border-radius: 50%;
     margin: 1em;
-    color:white
 }
 @keyframes bounce {
     0% {
@@ -44,4 +48,52 @@
 
 .button {
     animation: bounce 0.6s infinite alternate;
+}
+
+.form, .form2{
+    display: flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center
+}
+    .form input, .changeinsleep, .issuewithsleep {
+        width: 100%;
+        border-radius: 1em;
+        border: none;
+        height: 5vh;
+        width: 30vw;
+        margin: 1em;
+    }
+.form button{
+    animation: none;
+}
+
+.nexttoinput{
+    position: absolute;
+    right: 34vw;
+}
+
+.form2 select{
+    background: none;
+    border: none;
+    overflow: visible;
+    height: 30vh;
+}
+.form2 select option {
+        border-radius: 1em;
+        background-color: #5BB1A0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        height:7vh;
+        width:30vw;
+        color:white;
+        font-size:1em;
+        margin:0.5em;
+}
+
+option[selected] {
+    background-color: skyblue;
+    color: white;
 }
