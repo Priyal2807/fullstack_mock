@@ -1,11 +1,33 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { useState } from 'react'
 const Name = () => {
     const navigate = useNavigate();
-    const handleSubmit = (e) => {
+    const [data, setData] = useState();
+    const handleChange = (e) => {
+        setData(e.target.value);
+    }
+    const handleSubmit = async (e) => {
+
+        if (localStorage.getItem('userid') === null)
+            localStorage.setItem('userid', Math.floor((Math.random() * 100) + 1));
+
         e.preventDefault();
-        navigate("/changeinsleep");
+        let myid = localStorage.getItem('userid')
+        const baseurl = "http://localhost:5000";
+        const url = `${baseurl}/name`
+        await axios
+            .post(url, {
+                data: data,
+                myid: myid
+            }).then(function (response) {
+                navigate("/changeinsleep");
+            }).catch(function (err) {
+                console.log(err);
+            })
+       
     }
     return (
         <div className="centreDiv sizeofDiv">
@@ -17,7 +39,7 @@ const Name = () => {
             </div>
             <div>
                 <form action="" method="post" className="form" onSubmit={handleSubmit}>
-                    <input type="text" name="name" required placeholder="Choose a nickname" />
+                    <input type="text" name="name" onChange={handleChange} value={data} required placeholder="Choose a nickname" />
                     <button className="button nexttoinput" type="submit"><FontAwesomeIcon icon={faArrowDown} /></button>
                 </form>
             </div>

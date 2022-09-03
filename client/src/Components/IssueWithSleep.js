@@ -1,11 +1,29 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import axios from 'axios'
 function IssueWithSleep() {
     const navigate = useNavigate();
-    const handleSubmit = (e) => {
+    const [val, setVal] = useState();
+    const handleChange = (e) => {
+        let value = Array.from(e.target.selectedOptions, option => option.value);
+        setVal(val.concat(value));
+    }
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        navigate("/timetosleep");
+        const baseUrl = "http://localhost:5000";
+        const url = `${baseUrl}/sleepissueTime`
+        const myid = localStorage.getItem('userid');
+        await axios.post(url, {
+            myid: myid,
+            val : val
+        }).then(() => {
+            navigate("/timetosleep");
+        }).catch((err) => {
+            console.log(err);
+        })
+       
     }
     return (
         <div className="centreDiv sizeofDiv">
@@ -13,7 +31,7 @@ function IssueWithSleep() {
                 That's a great goal. How long have you been struggling with your sleep?
             </div>
             <form action="" method="post" onSubmit={handleSubmit} class="form2">
-                <select value="" name="role" className="issuewithsleep" multiple>
+                <select value={val} onChange={handleChange} name="role" className="issuewithsleep" multiple>
                     <option value="sleep easily">Less than 2 weeks</option>
                     <option value="sleep through night">2 to 8 weeks</option>
                     <option value="wake up refreshed">More than 8 weeks</option>
