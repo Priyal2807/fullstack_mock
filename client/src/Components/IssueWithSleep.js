@@ -12,7 +12,7 @@ function IssueWithSleep() {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const url = `${process.env.link}/sleepissueTime`
+        const url = "sleepissueTime"
         const myid = localStorage.getItem('userid');
         await axios.post(url, {
             myid: myid,

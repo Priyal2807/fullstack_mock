@@ -11,7 +11,7 @@ function TimetoSleep() {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const url = `${process.env.link}/sleepTimebed`
+        const url = "sleepTimebed"
         const myid = localStorage.getItem('userid');
         await axios.post(url, { bedtime: data, myid: myid }).then(() => {
             navigate("/timetogetup");

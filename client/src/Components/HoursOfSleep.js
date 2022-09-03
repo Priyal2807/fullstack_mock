@@ -12,7 +12,7 @@ function HoursOfSleep() {
     const handleSubmit = async (e) => {
         e.preventDefault();
        // const baseUrl = "http://localhost:5000";
-        const url = `${process.env.link}/hourSleepNight`
+        const url = "hourSleepNight"
         const myid = localStorage.getItem("userid");
         await axios.post(url, {
             hours: data,
