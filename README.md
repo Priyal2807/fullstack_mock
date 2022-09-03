@@ -1,0 +1,1 @@
+![Alt text](fullstack_mock.png?raw=true "Flowchart for the parser")
