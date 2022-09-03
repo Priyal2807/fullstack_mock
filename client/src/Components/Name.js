@@ -16,8 +16,7 @@ const Name = () => {
 
         e.preventDefault();
         let myid = localStorage.getItem('userid')
-        const baseurl = "http://localhost:5000";
-        const url = `${baseurl}/name`
+        const url = `${process.env.link}/name`
         await axios
             .post(url, {
                 data: data,

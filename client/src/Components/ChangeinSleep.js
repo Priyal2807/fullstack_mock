@@ -13,8 +13,7 @@ function ChangeinSleep() {
     const handleSubmit = async(e) => {
         e.preventDefault();
         let myid = localStorage.getItem('userid');
-        const baseurl = "http://localhost:5000";
-        const url = `${baseurl}/sleepResult`;
+        const url = `${process.env.link}/sleepResult`;
         await axios.post(
             url,
             {
